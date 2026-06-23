@@ -10,9 +10,9 @@ export default function MainPreview({ favoriteIds, item, onToggleFavorite }) {
   const poster = item.poster || item.src;
 
   return (
-    <article className="overflow-hidden rounded-[32px] border border-[var(--border-soft)] bg-[var(--surface)] shadow-2xl shadow-[var(--shadow-soft)]">
+    <article className="overflow-hidden rounded-[32px] bg-[var(--surface)] shadow-[0_24px_90px_var(--shadow-deep),inset_0_0_0_1px_var(--border-soft)]">
       <div
-        className="relative min-h-[360px] overflow-hidden bg-[var(--surface-strong)] sm:min-h-[520px] lg:min-h-[640px]"
+        className="relative min-h-[360px] overflow-hidden bg-[var(--surface-strong)] sm:min-h-[520px] lg:min-h-[650px]"
         style={{ aspectRatio: item.aspectRatio }}
       >
         {isVideo ? (
@@ -37,7 +37,7 @@ export default function MainPreview({ favoriteIds, item, onToggleFavorite }) {
             src={item.src}
           />
         )}
-        <div className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+        <div className="absolute left-4 top-4 rounded-full bg-black/35 px-3 py-1 text-xs font-semibold text-white/90 backdrop-blur">
           {isVideo ? "Video" : "Photo"}
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function MainPreview({ favoriteIds, item, onToggleFavorite }) {
           <div className="mt-4 flex flex-wrap gap-2">
             {[item.style, item.model, item.quality].map((label) => (
               <span
-                className="rounded-full border border-[var(--border-soft)] bg-[var(--surface-muted)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)]"
+                className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-medium text-[var(--text-secondary)] shadow-[inset_0_0_0_1px_var(--border-soft)]"
                 key={label}
               >
                 {label}
@@ -67,7 +67,7 @@ export default function MainPreview({ favoriteIds, item, onToggleFavorite }) {
           className={`h-11 rounded-[18px] px-5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/45 active:scale-[0.98] ${
             isFavorite
               ? "bg-[var(--accent)] text-[#071011]"
-              : "border border-[var(--border-soft)] bg-[var(--surface-muted)] text-[var(--text-primary)] hover:bg-[var(--surface-hover)]"
+              : "bg-[var(--surface-muted)] text-[var(--text-primary)] shadow-[inset_0_0_0_1px_var(--border-soft)] hover:bg-[var(--surface-hover)]"
           }`}
           onClick={() => onToggleFavorite(item.id)}
           type="button"

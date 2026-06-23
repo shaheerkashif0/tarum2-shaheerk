@@ -45,12 +45,12 @@ export default function TopPromptBar({
   }
 
   return (
-    <section className="sticky top-0 z-30 border-b border-[var(--border-soft)] bg-[var(--app-bg)]/88 px-4 py-4 backdrop-blur-xl sm:px-6 lg:px-8">
+    <section className="sticky top-0 z-30 bg-[var(--app-bg)]/90 px-4 pb-5 pt-2 backdrop-blur-xl sm:px-6 lg:px-8">
       <form
         className="mx-auto flex w-full max-w-[1480px] flex-col gap-3"
         onSubmit={submitPrompt}
       >
-        <div className="relative flex min-w-0 flex-col gap-2 rounded-[28px] border border-[var(--border-soft)] bg-[var(--surface)] p-2 shadow-2xl shadow-[var(--shadow-soft)] sm:flex-row sm:items-center sm:rounded-[32px]">
+        <div className="relative flex min-w-0 flex-col gap-2 rounded-[30px] bg-[var(--surface)] p-2 shadow-[0_18px_70px_var(--shadow-soft),inset_0_0_0_1px_var(--border-soft)] sm:flex-row sm:items-center sm:rounded-[34px]">
           <label className="sr-only" htmlFor="prompt">
             Prompt
           </label>
@@ -66,14 +66,14 @@ export default function TopPromptBar({
           <div className="flex shrink-0 gap-2">
             <button
               aria-expanded={optionsOpen}
-              className="h-11 rounded-[18px] border border-[var(--border-soft)] px-4 text-sm font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/45 active:scale-[0.98]"
+              className="h-11 rounded-[18px] bg-[var(--surface-muted)] px-4 text-sm font-medium text-[var(--text-secondary)] transition hover:bg-[var(--surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/35 active:scale-[0.98]"
               onClick={() => setOptionsOpen((open) => !open)}
               type="button"
             >
               Options
             </button>
             <button
-              className="h-11 rounded-[18px] bg-[var(--accent)] px-5 text-sm font-semibold text-[#071011] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/65 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
+              className="h-11 rounded-[18px] bg-[var(--accent)] px-5 text-sm font-semibold text-[#071011] shadow-sm shadow-[var(--shadow-soft)] transition hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/55 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-70"
               disabled={isGenerating || !prompt.trim()}
               type="submit"
             >

@@ -15,8 +15,8 @@ export default function Sidebar({
   onNewChat,
 }) {
   return (
-    <aside className="fixed bottom-3 left-2 right-2 z-40 flex h-16 items-center justify-between rounded-[24px] border border-[var(--border-soft)] bg-[var(--surface)]/95 px-3 shadow-2xl shadow-[var(--shadow-soft)] backdrop-blur md:bottom-auto md:left-0 md:right-auto md:top-0 md:h-dvh md:w-16 md:flex-col md:rounded-none md:border-y-0 md:border-l-0 md:px-0 md:py-5 lg:w-20">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[16px] border border-[var(--border-soft)] bg-[var(--accent-soft)] text-xs font-semibold text-[var(--accent-strong)] md:h-11 md:w-11">
+    <aside className="fixed bottom-3 left-2 right-2 z-40 flex h-16 items-center justify-between rounded-[24px] bg-[var(--surface)]/92 px-3 shadow-[0_18px_70px_var(--shadow-deep),inset_0_0_0_1px_var(--border-soft)] backdrop-blur md:bottom-auto md:left-0 md:right-auto md:top-0 md:h-dvh md:w-16 md:flex-col md:rounded-none md:px-0 md:py-5 lg:w-20">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[16px] bg-[var(--accent-soft)] text-xs font-semibold text-[var(--accent-strong)] shadow-sm shadow-[var(--shadow-soft)] md:h-11 md:w-11">
         LF
       </div>
 
@@ -34,7 +34,7 @@ export default function Sidebar({
             <button
               aria-label={item.label}
               aria-pressed={isHistory ? historyOpen : undefined}
-              className={`group relative flex h-11 min-w-0 items-center justify-center rounded-[16px] text-[var(--text-muted)] transition duration-200 hover:bg-[var(--surface-hover)] hover:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/45 active:scale-[0.98] md:w-11 lg:w-12 ${
+              className={`group relative flex h-11 min-w-0 items-center justify-center rounded-[16px] text-[var(--text-muted)] transition duration-200 hover:bg-[var(--surface-hover)] hover:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/35 active:scale-[0.98] md:w-11 lg:w-12 ${
                 isActive ? "bg-[var(--accent-soft)] text-[var(--accent-strong)]" : ""
               } ${item.key === "account" ? "md:mt-auto" : ""}`}
               key={item.key}

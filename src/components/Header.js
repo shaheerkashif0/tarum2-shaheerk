@@ -3,10 +3,10 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Header({ mediaType, onMediaTypeChange, onThemeToggle, theme }) {
   return (
-    <header className="border-b border-[var(--border-soft)] bg-[var(--app-bg)]/92 px-4 py-4 backdrop-blur-xl sm:px-6 lg:px-8">
+    <header className="bg-[var(--app-bg)]/94 px-4 pb-2 pt-4 backdrop-blur-xl sm:px-6 lg:px-8">
       <div className="mx-auto flex w-full max-w-[1480px] items-center justify-between gap-4">
         <div className="flex min-w-0 items-center gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[16px] border border-[var(--border-soft)] bg-[var(--accent-soft)] text-sm font-semibold text-[var(--accent-strong)]">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[16px] bg-[var(--accent-soft)] text-sm font-semibold text-[var(--accent-strong)] shadow-sm shadow-[var(--shadow-soft)]">
             T
           </div>
           <div className="min-w-0">
@@ -24,7 +24,7 @@ export default function Header({ mediaType, onMediaTypeChange, onThemeToggle, th
           <ThemeToggle onToggle={onThemeToggle} theme={theme} />
           <button
             aria-label="Account"
-            className="hidden h-11 w-11 items-center justify-center rounded-[16px] border border-[var(--border-soft)] bg-[var(--surface)] text-sm font-semibold text-[var(--text-secondary)] shadow-sm shadow-[var(--shadow-soft)] transition hover:bg-[var(--surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/45 active:scale-[0.98] sm:flex"
+            className="hidden h-10 w-10 items-center justify-center rounded-[16px] bg-[var(--surface)] text-sm font-semibold text-[var(--text-secondary)] shadow-sm shadow-[var(--shadow-soft)] transition hover:bg-[var(--surface-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/35 active:scale-[0.98] sm:flex"
             type="button"
           >
             U

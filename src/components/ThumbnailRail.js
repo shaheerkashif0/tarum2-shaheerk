@@ -8,7 +8,7 @@ export default function ThumbnailRail({
   selectedId,
 }) {
   return (
-    <aside className="min-w-0 rounded-[28px] border border-[var(--border-soft)] bg-[var(--surface)] p-3 shadow-xl shadow-[var(--shadow-soft)] lg:max-h-[calc(100dvh-230px)] lg:overflow-y-auto">
+    <aside className="min-w-0 rounded-[28px] bg-[var(--surface)] p-3 shadow-[0_18px_70px_var(--shadow-soft),inset_0_0_0_1px_var(--border-soft)] lg:max-h-[calc(100dvh-230px)] lg:overflow-y-auto">
       <div className="mb-3 flex items-center justify-between px-1">
         <h3 className="text-sm font-semibold text-[var(--text-primary)]">
           Generated set
@@ -23,10 +23,10 @@ export default function ThumbnailRail({
 
           return (
             <article
-              className={`group overflow-hidden rounded-[20px] border bg-[var(--surface-strong)] transition ${
+              className={`group overflow-hidden rounded-[20px] bg-[var(--surface-strong)] transition ${
                 isSelected
-                  ? "border-[var(--accent)] shadow-lg shadow-[var(--shadow-soft)]"
-                  : "border-[var(--border-soft)] hover:border-[var(--border-strong)]"
+                  ? "shadow-[0_10px_34px_var(--shadow-soft),inset_0_0_0_1px_var(--accent)]"
+                  : "shadow-[inset_0_0_0_1px_var(--border-soft)] hover:shadow-[inset_0_0_0_1px_var(--border-strong)]"
               }`}
               key={item.id}
             >
@@ -43,11 +43,11 @@ export default function ThumbnailRail({
                     sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 280px"
                     src={previewSrc}
                   />
-                  <span className="absolute left-2 top-2 rounded-full bg-black/45 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
+                  <span className="absolute left-2 top-2 rounded-full bg-black/45 px-2 py-1 text-[10px] font-semibold text-white/90 backdrop-blur">
                     {index + 1}
                   </span>
                   {item.type === "video" ? (
-                    <span className="absolute right-2 top-2 rounded-full bg-black/45 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur">
+                    <span className="absolute right-2 top-2 rounded-full bg-black/45 px-2 py-1 text-[10px] font-semibold text-white/90 backdrop-blur">
                       Video
                     </span>
                   ) : null}
@@ -67,7 +67,7 @@ export default function ThumbnailRail({
                   className={`h-8 w-8 shrink-0 rounded-full text-xs font-semibold transition focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/45 active:scale-[0.98] ${
                     isFavorite
                       ? "bg-[var(--accent)] text-[#071011]"
-                      : "border border-[var(--border-soft)] text-[var(--text-secondary)] hover:bg-[var(--surface-hover)]"
+                      : "bg-[var(--surface-muted)] text-[var(--text-secondary)] shadow-[inset_0_0_0_1px_var(--border-soft)] hover:bg-[var(--surface-hover)]"
                   }`}
                   onClick={() => onToggleFavorite(item.id)}
                   type="button"

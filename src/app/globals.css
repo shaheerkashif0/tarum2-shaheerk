@@ -1,43 +1,45 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f6f4;
-  --foreground: #111816;
-  --app-bg: #f4f6f4;
-  --app-bg-soft: #e8eeeb;
-  --surface: #ffffff;
-  --surface-strong: #f7faf8;
-  --surface-muted: rgba(17, 24, 22, 0.055);
-  --surface-hover: rgba(17, 24, 22, 0.075);
-  --border-soft: rgba(17, 24, 22, 0.12);
-  --border-strong: rgba(17, 24, 22, 0.2);
-  --text-primary: #101614;
-  --text-secondary: #485653;
-  --text-muted: #73817d;
-  --accent: #6bb7b4;
-  --accent-strong: #0f5f5d;
-  --accent-soft: rgba(107, 183, 180, 0.18);
-  --shadow-soft: rgba(13, 26, 23, 0.12);
+  --background: #eff3f1;
+  --foreground: #101816;
+  --app-bg: #eff3f1;
+  --app-bg-soft: #e4ebe8;
+  --surface: #f9fbfa;
+  --surface-strong: #fbfdfc;
+  --surface-muted: rgba(14, 26, 23, 0.045);
+  --surface-hover: rgba(14, 26, 23, 0.075);
+  --border-soft: rgba(14, 26, 23, 0.09);
+  --border-strong: rgba(14, 26, 23, 0.15);
+  --text-primary: #101816;
+  --text-secondary: #53615e;
+  --text-muted: #7e8c88;
+  --accent: #79c7c3;
+  --accent-strong: #1e6c69;
+  --accent-soft: rgba(91, 171, 168, 0.16);
+  --shadow-soft: rgba(14, 26, 23, 0.09);
+  --shadow-deep: rgba(14, 26, 23, 0.14);
 }
 
 [data-theme="dark"] {
-  --background: #080a0b;
-  --foreground: #f4f7f7;
-  --app-bg: #080a0b;
-  --app-bg-soft: #0d1011;
-  --surface: #111416;
-  --surface-strong: #151a1c;
+  --background: #080c0d;
+  --foreground: #eef5f4;
+  --app-bg: #080c0d;
+  --app-bg-soft: #0a0f10;
+  --surface: #101617;
+  --surface-strong: #121a1b;
   --surface-muted: rgba(255, 255, 255, 0.045);
-  --surface-hover: rgba(255, 255, 255, 0.075);
-  --border-soft: rgba(255, 255, 255, 0.1);
-  --border-strong: rgba(255, 255, 255, 0.18);
-  --text-primary: #f4f7f7;
-  --text-secondary: #b7c0bd;
-  --text-muted: #737f7b;
+  --surface-hover: rgba(255, 255, 255, 0.065);
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text-primary: #edf5f4;
+  --text-secondary: #aebbb8;
+  --text-muted: #717f7b;
   --accent: #9debf1;
-  --accent-strong: #9debf1;
-  --accent-soft: rgba(157, 235, 241, 0.13);
-  --shadow-soft: rgba(0, 0, 0, 0.34);
+  --accent-strong: #a8eef0;
+  --accent-soft: rgba(157, 235, 241, 0.12);
+  --shadow-soft: rgba(0, 0, 0, 0.26);
+  --shadow-deep: rgba(0, 0, 0, 0.42);
 }
 
 @theme inline {
