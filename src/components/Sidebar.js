@@ -1,38 +1,63 @@
 const navItems = [
   { key: "generate", label: "Generate", icon: "+" },
-  { key: "history", label: "History", icon: "◷" },
-  { key: "favorites", label: "Favorites", icon: "☆" },
-  { key: "settings", label: "Settings", icon: "⚙" },
+  { key: "history", label: "History", icon: "H" },
+  { key: "favorites", label: "Favorites", icon: "F" },
+  { key: "settings", label: "Settings", icon: "S" },
   { key: "account", label: "Account", icon: "A" },
 ];
 
-export default function Sidebar({ historyOpen, onHistoryClick }) {
+export default function Sidebar({
+  activeView,
+  favoriteCount,
+  historyOpen,
+  onFavoritesClick,
+  onHistoryClick,
+  onNewChat,
+}) {
   return (
-    <aside className="fixed bottom-3 left-2 right-2 z-40 flex h-16 items-center justify-between rounded-[24px] border border-white/10 bg-[#101315]/95 px-3 shadow-2xl shadow-black/35 backdrop-blur md:bottom-auto md:left-0 md:right-auto md:top-0 md:h-dvh md:w-16 md:flex-col md:rounded-none md:border-y-0 md:border-l-0 md:px-0 md:py-5 lg:w-20">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[16px] border border-cyan-200/20 bg-cyan-300/10 text-xs font-semibold text-cyan-100 md:h-11 md:w-11">
+    <aside className="fixed bottom-3 left-2 right-2 z-40 flex h-16 items-center justify-between rounded-[24px] border border-[var(--border-soft)] bg-[var(--surface)]/95 px-3 shadow-2xl shadow-[var(--shadow-soft)] backdrop-blur md:bottom-auto md:left-0 md:right-auto md:top-0 md:h-dvh md:w-16 md:flex-col md:rounded-none md:border-y-0 md:border-l-0 md:px-0 md:py-5 lg:w-20">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[16px] border border-[var(--border-soft)] bg-[var(--accent-soft)] text-xs font-semibold text-[var(--accent-strong)] md:h-11 md:w-11">
         LF
       </div>
 
       <nav className="grid flex-1 grid-cols-5 items-center gap-1 pl-2 md:mt-8 md:flex md:w-full md:flex-col md:gap-2 md:pl-0">
         {navItems.map((item) => {
+          const isGenerate = item.key === "generate";
+          const isFavorites = item.key === "favorites";
           const isHistory = item.key === "history";
-          const isActive = item.key === "generate" || (isHistory && historyOpen);
+          const isActive =
+            (isGenerate && activeView === "generate") ||
+            (isFavorites && activeView === "favorites") ||
+            (isHistory && historyOpen);
 
           return (
             <button
-              key={item.key}
               aria-label={item.label}
               aria-pressed={isHistory ? historyOpen : undefined}
-              className={`group flex h-11 min-w-0 items-center justify-center rounded-[16px] text-zinc-400 transition duration-200 hover:bg-white/[0.06] hover:text-zinc-50 focus:outline-none focus:ring-2 focus:ring-cyan-300/50 active:scale-[0.98] md:w-11 lg:w-12 ${
-                isActive ? "bg-cyan-300/12 text-cyan-100" : ""
+              className={`group relative flex h-11 min-w-0 items-center justify-center rounded-[16px] text-[var(--text-muted)] transition duration-200 hover:bg-[var(--surface-hover)] hover:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/45 active:scale-[0.98] md:w-11 lg:w-12 ${
+                isActive ? "bg-[var(--accent-soft)] text-[var(--accent-strong)]" : ""
               } ${item.key === "account" ? "md:mt-auto" : ""}`}
-              onClick={isHistory ? onHistoryClick : undefined}
+              key={item.key}
+              onClick={
+                isGenerate
+                  ? onNewChat
+                  : isHistory
+                    ? onHistoryClick
+                    : isFavorites
+                      ? onFavoritesClick
+                      : undefined
+              }
               title={item.label}
               type="button"
             >
-              <span aria-hidden="true" className="text-xl leading-none">
+              <span aria-hidden="true" className="text-sm font-semibold leading-none">
                 {item.icon}
               </span>
+              {isFavorites && favoriteCount ? (
+                <span className="absolute right-1 top-1 min-w-4 rounded-full bg-[var(--accent)] px-1 text-[10px] font-semibold leading-4 text-[#071011]">
+                  {favoriteCount}
+                </span>
+              ) : null}
               <span className="sr-only">{item.label}</span>
             </button>
           );
