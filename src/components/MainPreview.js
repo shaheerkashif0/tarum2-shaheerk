@@ -11,14 +11,11 @@ export default function MainPreview({ favoriteIds, item, onToggleFavorite }) {
 
   return (
     <article className="overflow-hidden rounded-[32px] bg-[var(--surface)] shadow-[0_24px_90px_var(--shadow-deep),inset_0_0_0_1px_var(--border-soft)]">
-      <div
-        className="relative min-h-[360px] overflow-hidden bg-[var(--surface-strong)] sm:min-h-[520px] lg:min-h-[650px]"
-        style={{ aspectRatio: item.aspectRatio }}
-      >
+      <div className="relative h-[clamp(260px,58dvh,520px)] overflow-hidden bg-[var(--surface-strong)] sm:h-[clamp(320px,58dvh,560px)] lg:h-[clamp(360px,calc(100dvh-340px),620px)]">
         {isVideo ? (
           <video
             aria-label={item.alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             controls
             muted
             playsInline
@@ -30,10 +27,10 @@ export default function MainPreview({ favoriteIds, item, onToggleFavorite }) {
         ) : (
           <Image
             alt={item.alt}
-            className="object-cover"
+            className="object-contain"
             fill
             priority
-            sizes="(max-width: 1023px) 100vw, 70vw"
+            sizes="(max-width: 1023px) 100vw, calc(100vw - 420px)"
             src={item.src}
           />
         )}

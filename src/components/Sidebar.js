@@ -1,9 +1,12 @@
+// "use client";
+import { Plus, History as HistoryIcon, Heart, Settings, User } from "lucide-react";
+
 const navItems = [
-  { key: "generate", label: "Generate", icon: "+" },
-  { key: "history", label: "History", icon: "H" },
-  { key: "favorites", label: "Favorites", icon: "F" },
-  { key: "settings", label: "Settings", icon: "S" },
-  { key: "account", label: "Account", icon: "A" },
+  { key: "generate", label: "Generate", icon: Plus },
+  { key: "history", label: "History", icon: HistoryIcon },
+  { key: "favorites", label: "Favorites", icon: Heart },
+  { key: "settings", label: "Settings", icon: Settings },
+  { key: "account", label: "Account", icon: User },
 ];
 
 export default function Sidebar({
@@ -34,9 +37,8 @@ export default function Sidebar({
             <button
               aria-label={item.label}
               aria-pressed={isHistory ? historyOpen : undefined}
-              className={`group relative flex h-11 min-w-0 items-center justify-center rounded-[16px] text-[var(--text-muted)] transition duration-200 hover:bg-[var(--surface-hover)] hover:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/35 active:scale-[0.98] md:w-11 lg:w-12 ${
-                isActive ? "bg-[var(--accent-soft)] text-[var(--accent-strong)]" : ""
-              } ${item.key === "account" ? "md:mt-auto" : ""}`}
+              className={`group relative flex h-11 w-full min-w-0 items-center justify-center rounded-[16px] text-[var(--text-muted)] transition duration-200 hover:bg-[var(--surface-hover)] hover:text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]/35 active:scale-[0.98] md:w-11 lg:w-12 ${isActive ? "bg-[var(--accent-soft)] text-[var(--accent-strong)]" : ""
+                } ${item.key === "account" ? "md:mt-auto" : ""}`}
               key={item.key}
               onClick={
                 isGenerate
@@ -50,9 +52,7 @@ export default function Sidebar({
               title={item.label}
               type="button"
             >
-              <span aria-hidden="true" className="text-sm font-semibold leading-none">
-                {item.icon}
-              </span>
+              <item.icon aria-hidden="true" className="h-5 w-5" strokeWidth={2} />
               {isFavorites && favoriteCount ? (
                 <span className="absolute right-1 top-1 min-w-4 rounded-full bg-[var(--accent)] px-1 text-[10px] font-semibold leading-4 text-[#071011]">
                   {favoriteCount}
