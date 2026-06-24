@@ -18,7 +18,7 @@ export default function OptionsPopover({ onOptionChange, open, options }) {
       <div className="grid gap-2">
         {optionGroups.map((group) => (
           <label
-            className="grid grid-cols-[104px_1fr] items-center gap-3 rounded-[16px] bg-[var(--surface-muted)] px-3 py-2 text-sm text-[var(--text-secondary)]"
+            className="grid grid-cols-[104px_1fr] items-center gap-3 rounded-[4px] bg-[var(--surface-muted)] px-3 py-2 text-sm text-[var(--text-secondary)]"
             key={group.key}
           >
             <span>{group.label}</span>
