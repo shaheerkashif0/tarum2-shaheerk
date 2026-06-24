@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Luma Forge",
+  title: "Takhleeq",
   description: "A calm AI image-generation inspiration board.",
 };
 
